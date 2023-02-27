@@ -31,7 +31,7 @@ const Appliances = ({ appliance }) => {
         } else {
             setProducts(products.sort((a, b) => a.createdAt - b.createdAt));
         }
-    }, [sort])
+    }, [sort, products])
   return (
       <section className="head_section">
       <Head>
