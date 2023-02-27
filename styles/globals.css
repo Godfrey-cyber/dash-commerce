@@ -1,26 +1,168 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .head_section {
+    @apply bg-gray-200 min-h-screen w-full overflow-x-hidden font-['Montserrat'] font-bold;
   }
-  body {
-    color: white;
-    background: black;
+  .header_div {
+    @apply flex justify-between sm:px-20 px-5 items-center bg-black shadow-md h-[70px] w-full space-x-2 text-white sticky top-0 left-0 z-50;
+  }
+  .product_section {
+    @apply grid grid-cols-12 rounded-sm gap-x-4 px-10 w-full mx-auto my-6
+  }
+  .form_span_1 {
+    @apply bg-orange-500 h-full rounded-tl-md rounded-bl-md w-12 justify-center items-center flex space-x-2 cursor-pointer text-center hover:bg-orange-400 transition delay-200;
+  }
+  .form_span_2 {
+    @apply bg-orange-500 h-full rounded-tr-md rounded-br-md w-12 cursor-pointer justify-center items-center flex hover:bg-orange-400 transition delay-200;
+  }
+  .form_input {
+    @apply border-none h-full flex-1 text-sm font-['Montserrat'] text-gray-500 focus:outline-none focus:border-none p-2;
+  }
+  .form_text {
+    @apply font-semibold cursor-pointer;
+  }
+  .form {
+    @apply flex flex-row items-center rounded-md h-8 flex-1 bg-white hidden lg:flex;
+  }
+  .cart {
+    @apply bg-orange-500 rounded-full text-sm justify-center h-5 w-5 flex items-center text-white font-bold absolute -top-2 left-4;
+  }
+  /*.cat_section {
+    @apply grid grid-flow-row-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-6 px-2 lg:px-20 w-screen gap-3 mx-auto py-2 max-h-fit rounded-sm lg:justify-between my-4 lg:my-8 mx-auto;
+  }*/
+  .img_wrapper {
+    @apply h-32 lg:h-56 h-20 w-32 lg:w-52 relative
+  }
+  .cat_section {
+    @apply grid grid-cols-12 px-4 lg:px-20 w-full max-h-fit my-4 lg:my-8 mx-auto gap-4
+  }
+  .cat_item {
+    @apply flex flex-col col-span-6 lg:col-span-2 space-y-4 items-center justify-between rounded-md w-32 h-32  lg:h-44 lg:w-44 bg-white p-2 cursor-pointer
+  }
+  .main {
+    @apply flex flex-col ;
+  }
+  .cat_items {
+    @apply text-gray-700 cursor-pointer hover:bg-gray-200 py-1 px-4 text-sm font-semibold;
+  }
+  .arrow_right {
+    @apply text-white h-8 absolute top-1/2 right-[32px] p-2 rounded-full bg-orange-500 font-bold cursor-pointer shadow-sm;
+  }
+  .slide {
+    @apply min-w-full lg:h-full flex justify-between px-4 items-center rounded-md shadow-sm opacity-0 duration-1000 ease-out transition-all delay-1000;
+  }
+  .arrow_left {
+    @apply text-white h-8 absolute top-1/2 left-[32px] p-2 rounded-full bg-orange-500 font-bold cursor-pointer shadow-sm;
+  }
+  .active {
+    @apply opacity-100 duration-1000 transition delay-1000;
+  }
+  /*.product_grid {
+    @apply grid grid-flow-row-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 lg:gap-x-2 gap-y-4 px-3 mx-auto lg:px-20 w-full;
+  }*/
+  .product_grid {
+    @apply grid grid-cols-12 gap-4 mx-auto px-4 lg:px-20 w-full max-h-fit 
+  }
+  .product_span {
+    @apply col-span-6 lg:col-span-3 flex flex-col space-y-2 bg-white rounded-sm max-h-fit w-full lg:w-full transition delay-200 hover:shadow-sm shadow-slate-500 cursor-pointer relative p-2;
+  }
+  .disc_span {
+    @apply text-xs fixed z-50 md:text-sm p-1 rounded-sm bg-red-200 text-red-400 absolute top-4 left-4 cursor-pointer;
+  }
+  .like_span {
+    @apply p-1 fixed z-50 bg-white shadow-sm shadow-gray-400 absolute top-2 right-4 rounded-full cursor-pointer items-center justify-center;
+  }
+  .img_tag {
+    @apply  flex;
+  }
+  .price_text {
+    @apply text-xs lg:text-sm font-extrabold text-gray-800;
+  }
+  .title_span {
+    @apply text-start px-20 text-lg my-6 text-gray-800 font-extrabold;
+  }
+  .text {
+    @apply font-bold bg-green-400 p-2;
+  }
+  .btn_primary {
+    @apply text-sm font-bold font-['Montserrat'] text-red-400;
+  }
+  .footer_col {
+    @apply text-sm text-gray-400 font-light
+  }
+  /* .product_grid {
+    @apply col-span-3 flex-col space-y-4 rounded-sm bg-white p-4
+  }
+  .product_grid_1 {
+    @apply col-span-9 flex-col space-y-4 rounded-sm bg-white p-4
+  } */
+  .main_grid {
+    @apply grid grid-cols-12 gap-x-4 px-10 bg-white rounded-md w-4/5 mx-auto my-4 justify-between items-center
+  }
+  .cat_grid_div {
+    @apply grid grid-cols-12 gap-4 items-center mx-auto my-4
+  }
+  .main_grid_div {
+    @apply col-span-6 sm:col-span-12 md:col-span-4 lg:col-span-3 cursor-pointer bg-white flex flex-col space-y-3 rounded-md p-4  items-center min-h-[178px] h-48 min-w-[224px] w-64
+  }
+  .cart_button {
+    @apply flex items-center text-sm text-gray-600 font-bold px-3 py-2 bg-gray-300 cursor-pointer
+  }
+  .cart_div {
+    @apply flex flex-col space-y-2 gap-x-4 px-4 border-b border-gray-200 relative w-full
+  }
+  .cart_icon {
+    @apply text-sm bg-orange-200 rounded-full p-2 cursor-pointer absolute top-2 right-6
+  }
+  .cart_span {
+    @apply flex items-center text-sm text-gray-600 font-normal py-4 w-10 mx-auto text-center bg-white justify-center
+  }
+  .checkout_btn {
+    @apply bg-orange-400 px-4 py-3 rounded-sm text-sm font-semibold text-white cursor-pointer hover:bg-orange-500 transition delay-200
+  }
+  .cart_img {
+    @apply flex
+  }
+  .cart_title {
+    @apply text-sm font-semibold text-gray-800
+  }
+  .cart_summary {
+    @apply col-span-12 lg:col-span-4 flex flex-col gap-y-4 rounded-sm bg-white p-4 h-fit
+  }
+  .payment_img {
+    @apply h-12 w-12 object-contain
+  }
+
+  /*register*/
+  .icon_grid {
+    @apply  h-6 w-6 text-purple-400 
+  }
+  .register_header {
+    @apply text-sm font-semibold text-black
+  }
+  .register_text {
+    @apply text-sm font-normal text-gray-500 md:font-light
+  }
+  .label_text {
+    @apply text-sm font-normal text-black
+  }
+  .form_input {
+    @apply border-none text-xs text-gray-400 focus:outline-none w-full
+  }
+  .form-span {
+    @apply border border-gray-400 rounded-sm px-3 py-2 w-full
+  }
+  .sign_up_button {
+    @apply bg-orange-400 text-sm font-semibold text-white px-3 py-2 w-full rounded-md hover:bg-orange-300
+  }
+  .register_grid {
+    @apply grid grid-cols-12 lg:px-20 px-4 md:px-5 gap-4 lg:gap-x-4 w-full h-full my-20
+  }
+  .login_grid {
+    @apply flex flex-col mx-auto lg:px-20 px-4 md:px-10 gap-4 lg:gap-x-4 w-full h-full my-20
   }
 }

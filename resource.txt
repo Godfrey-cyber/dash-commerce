@@ -1,0 +1,49 @@
+const withAuth = (GetServerSidePropsFunction) => async (ctx) => {
+
+  const token = ctx.req.cookies?.token || null;
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+
+  return await GetServerSidePropsFunction(ctx);
+};
+
+export default withAuth;
+
+useEffect(() => {
+    let token = (store as any).user?.token;
+    if (!token) {
+      fetch("/api/checkAuth", {
+        method: "POST",
+        body: "",
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((cookieData) => {
+          if (cookieData.token)
+           store.dispatch(setUser(token: cookieData.token }));
+             
+        });
+    }
+  }, []);
+
+
+  Router WiFi Router with Antenna - Huawei HG8546M 
+router WiFi Router with Antenna - Huawei
+High Quality Huawei Networking router relatively new 
+Clean and in excellent working condition.
+Comes with a power charger and box.
+Class 1 Laser Product.
+
+Perfect condition with two antennas.
+EchoLife HG8546M 
+Power rating 12.0 v. 1.0 A
+From Huawei Technologies
